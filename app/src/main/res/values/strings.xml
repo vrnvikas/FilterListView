@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FilterListView</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Filter ListView</string>
+    <string name="namelabel">"Name : "</string>
+    <string name="authorlabel">"Author : "</string>
+    <string name="publisherlabel">"Publisher : "</string>
+</resources>
