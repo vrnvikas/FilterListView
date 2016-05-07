@@ -145,7 +145,6 @@ public class ListViewAdapter extends BaseAdapter {
 
             }
 
-
         }
 
         return view;
