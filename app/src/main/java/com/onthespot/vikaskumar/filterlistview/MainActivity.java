@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        // Generate sample data
         bookName = new String[]{"Half Girlfriend", "Harray Potter", "Da Vinchi Code", "Divergent",
                 "The Hunger Games", "Angels & Demons", "Nemesis", "The Grand Design", "Gone Girl", "The Maze Runner"};
 
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         ,R.drawable.agatha,R.drawable.grand_design,R.drawable.gone_girl,R.drawable.maze_runner};
 
 
-        // Locate the ListView in listview_main.xml
         list = (ListView) findViewById(R.id.listview);
 
 
@@ -74,20 +72,13 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < bookName.length; i++) {
             BookCollection wp = new BookCollection(bookName[i], bookAuthor[i],
                     publisher[i],coverImage[i]);
-            // Binds all strings into an array
             arraylist.add(wp);
         }
 
-        // Pass results to ListViewAdapter Class
+
         adapter = new ListViewAdapter(this, arraylist);
-
-        // Binds the Adapter to the ListView
         list.setAdapter(adapter);
-
-        // Locate the EditText in listview_main.xml
         editsearch = (EditText) findViewById(R.id.search);
-
-        // Capture Text in EditText
         editsearch.addTextChangedListener(new TextWatcher() {
 
             @Override

@@ -67,7 +67,6 @@ public class ListViewAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item, null);
-            // Locate the TextViews in listview_item.xml
             holder.name = (TextView) view.findViewById(R.id.name);
             holder.author = (TextView) view.findViewById(R.id.author);
             holder.publisher = (TextView) view.findViewById(R.id.publisher);
@@ -76,7 +75,7 @@ public class ListViewAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        // Set the results into TextViews
+
         holder.name.setText(BookList.get(position).getName());
         holder.author.setText(BookList.get(position).getAuthor());
         holder.publisher.setText(BookList.get(position).getPublisher());
@@ -95,8 +94,6 @@ public class ListViewAdapter extends BaseAdapter {
                 Pattern p = Pattern.compile(mQuery, Pattern.CASE_INSENSITIVE);
                 Matcher m = p.matcher(notes);
                 while (m.find()) {
-                    //String word = m.group();
-                    //String word1 = notes.substring(m.start(), m.end());
 
                     sb.setSpan(new ForegroundColorSpan(Color.rgb(255, 0, 0)), m.start(), m.end(),
                             Spannable.SPAN_INCLUSIVE_INCLUSIVE);
@@ -118,8 +115,6 @@ public class ListViewAdapter extends BaseAdapter {
                 Pattern p = Pattern.compile(mQuery, Pattern.CASE_INSENSITIVE);
                 Matcher m = p.matcher(notes);
                 while (m.find()) {
-                    //String word = m.group();
-                    //String word1 = notes.substring(m.start(), m.end());
 
                     sb.setSpan(new ForegroundColorSpan(Color.rgb(255, 0, 0)), m.start(), m.end(),
                             Spannable.SPAN_INCLUSIVE_INCLUSIVE);
@@ -141,8 +136,7 @@ public class ListViewAdapter extends BaseAdapter {
                 Pattern p = Pattern.compile(mQuery, Pattern.CASE_INSENSITIVE);
                 Matcher m = p.matcher(notes);
                 while (m.find()) {
-                    //String word = m.group();
-                    //String word1 = notes.substring(m.start(), m.end());
+
 
                     sb.setSpan(new ForegroundColorSpan(Color.rgb(255, 0, 0)), m.start(), m.end(),
                             Spannable.SPAN_INCLUSIVE_INCLUSIVE);
@@ -154,30 +148,9 @@ public class ListViewAdapter extends BaseAdapter {
 
         }
 
-
-        // Listen for ListView Item Click
-        view.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // Send single item click data to SingleItemView Class
-                //Intent intent = new Intent(mContext, SingleItemView.class);
-                // Pass all data bookName
-                //intent.putExtra("bookName",(BookList.get(position).getName()));
-                // Pass all data bookAuthor
-                //intent.putExtra("bookAuthor",(BookList.get(position).getAuthor()));
-                // Pass all data publisher
-                //intent.putExtra("publisher",(BookList.get(position).getPublisher()));
-                // Pass all data flag
-                // Start SingleItemView Class
-                //mContext.startActivity(intent);
-            }
-        });
-
         return view;
     }
 
-    // Filter Class
     public void filter(String query) {
         mQuery = query.toLowerCase(Locale.getDefault());
         BookList.clear();
