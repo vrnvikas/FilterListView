@@ -9,20 +9,15 @@ public class BookCollection {
     private String publisher;
     private int image;
 
-
-    public BookCollection(String rank, String country, String population,int image) {
-        this.name = rank;
-        this.author = country;
-        this.publisher = population;
+    public BookCollection(String name, String author, String publisher,int image) {
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
         this.image = image;
     }
 
     public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
+        return this.image;
     }
 
     public String getName() {

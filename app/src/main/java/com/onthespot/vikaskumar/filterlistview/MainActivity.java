@@ -15,12 +15,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     
     ListView list;
-    ListViewAdapter adapter;
+    CustomFilterAdapter adapter;
     EditText editsearch;
     String[] bookName;
     String[] bookAuthor;
@@ -60,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+                // used to hide the keyboard
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
                 return false;
             }
         });
-
 
 
         for (int i = 0; i < bookName.length; i++) {
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        adapter = new ListViewAdapter(this, arraylist);
+        adapter = new CustomFilterAdapter(this, arraylist);
         list.setAdapter(adapter);
         editsearch = (EditText) findViewById(R.id.search);
         editsearch.addTextChangedListener(new TextWatcher() {
@@ -84,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable arg0) {
                 // TODO Auto-generated method stub
-                String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
-                adapter.filter(text);
             }
 
             @Override
@@ -98,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence arg0, int arg1, int arg2,
                                       int arg3) {
                 // TODO Auto-generated method stub
+                adapter.getFilter().filter(arg0.toString());
             }
         });
 
