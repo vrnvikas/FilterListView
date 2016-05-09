@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     
     ListView list;
-    CustomFilterAdapter adapter;
+    ListViewAdapter adapter;
     EditText editsearch;
     String[] bookName;
     String[] bookAuthor;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        adapter = new CustomFilterAdapter(this, arraylist);
+        adapter = new ListViewAdapter(this, arraylist);
         list.setAdapter(adapter);
         editsearch = (EditText) findViewById(R.id.search);
         editsearch.addTextChangedListener(new TextWatcher() {
